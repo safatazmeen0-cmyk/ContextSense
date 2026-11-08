@@ -1,0 +1,17 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+:root, [data-theme='light'] { --bg: 247 248 252; --surface: 255 255 255; --text: 31 41 55; --muted: 107 114 128; --border: 229 231 235; --primary: 91 95 239; --secondary: 139 92 246; --ok: 16 185 129; --warn: 245 158 11; --bad: 239 68 68; --orb1: 91 95 239; --orb2: 139 92 246; color-scheme: light }
+[data-theme='dark'] { --bg: 18 20 28; --surface: 27 30 43; --text: 232 234 242; --muted: 148 155 175; --border: 47 52 72; --primary: 129 140 248; --secondary: 167 139 250; --orb1: 99 102 241; --orb2: 139 92 246; color-scheme: dark }
+[data-theme='midnight'] { --bg: 8 17 38; --surface: 14 28 58; --text: 224 236 255; --muted: 134 156 196; --border: 32 54 96; --primary: 34 211 238; --secondary: 99 102 241; --orb1: 34 211 238; --orb2: 79 70 229; color-scheme: dark }
+[data-theme='lavender'] { --bg: 245 241 255; --surface: 255 255 255; --text: 46 32 82; --muted: 112 99 150; --border: 227 218 250; --primary: 124 77 255; --secondary: 192 132 252; --orb1: 167 139 250; --orb2: 232 121 249; color-scheme: light }
+[data-theme='emerald'] { --bg: 240 249 245; --surface: 255 255 255; --text: 20 48 40; --muted: 94 124 114; --border: 209 234 224; --primary: 5 150 105; --secondary: 20 184 166; --orb1: 52 211 153; --orb2: 45 212 191; color-scheme: light }
+html { scroll-behavior: smooth }
+body { @apply bg-bg text-ink font-sans antialiased; min-height: 100vh }
+html.theme-fade *, html.theme-fade *::before, html.theme-fade *::after { transition: background-color .3s, color .3s, border-color .3s, fill .3s !important }
+:focus-visible { outline: 2px solid rgb(var(--primary)); outline-offset: 2px }
+.glass { background: rgb(var(--surface) / .72); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px) }
+.orb { position: absolute; border-radius: 9999px; filter: blur(90px); opacity: .22; animation: drift 38s ease-in-out infinite alternate }
+@keyframes drift { to { transform: translate3d(8vw, 6vh, 0) scale(1.15) } }
+@media (prefers-reduced-motion: reduce) { .orb { animation: none } html { scroll-behavior: auto } }
+.react-flow__attribution { display: none }
+.react-flow__node { font-family: inherit }
+mark.ent { border-radius: 6px; padding: 1px 5px; cursor: pointer; transition: box-shadow .2s }
